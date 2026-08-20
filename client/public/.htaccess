@@ -1,0 +1,21 @@
+# IONOS Deploy Now / Apache SPA-Fallback für React und Wouter
+# Die Regel lässt echte Dateien und Verzeichnisse unverändert.
+
+<IfModule mod_negotiation.c>
+  Options -MultiViews
+</IfModule>
+
+<IfModule mod_rewrite.c>
+  RewriteEngine On
+  RewriteBase /
+
+  # index.html direkt ausliefern und keine Endlosschleife erzeugen.
+  RewriteRule ^index\.html$ - [L]
+
+  # Assets, robots.txt, sitemap.xml und vorhandene Dateien bleiben unverändert.
+  RewriteCond %{REQUEST_FILENAME} !-f
+  RewriteCond %{REQUEST_FILENAME} !-d
+
+  # Alle übrigen SPA-Routen an React/Wouter übergeben.
+  RewriteRule . /index.html [L]
+</IfModule>

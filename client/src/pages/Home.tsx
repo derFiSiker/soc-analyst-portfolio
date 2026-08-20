@@ -128,7 +128,7 @@ export default function Home() {
                     <span className="text-accent">DerFisiker</span>
                   </h1>
                   <p className="text-2xl text-foreground/80 font-medium">
-                    Junior SOC Analyst | Fachinformatiker Systemintegration (IHK 2026)
+                    Junior SOC Analyst | System Integration Specialist (IHK 2026)
                   </p>
                 </div>
 
@@ -143,13 +143,6 @@ export default function Home() {
                     Actively seeking Junior SOC Analyst position
                   </span>
                 </div>
-                  <div className="flex items-center gap-3">
-                  <span className="status-badge status-active">
-                    <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
-                    Actively seeking Network & System Integration position
-                  </span>
-                </div>
-
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4">
