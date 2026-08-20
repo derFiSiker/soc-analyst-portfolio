@@ -1,4 +1,4 @@
-import { useParams, Link } from "wouter";
+import { useParams } from "wouter";
 import { ArrowLeft, Calendar, Zap, Code2, AlertCircle, BookOpen } from "lucide-react";
 import Navbar from "@/components/Navbar";
 import Footer from "@/components/Footer";
@@ -27,12 +27,10 @@ export default function ProjectDetail() {
           <p className="text-foreground/70 mb-8">
             The project you're looking for doesn't exist.
           </p>
-          <Link href="/">
-            <a className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-all">
+          <a href="/" className="inline-flex items-center gap-2 px-6 py-2 bg-primary text-primary-foreground rounded-lg hover:bg-accent hover:text-accent-foreground transition-all">
               <ArrowLeft size={18} />
               Back to Home
             </a>
-          </Link>
         </main>
         <Footer />
       </div>
@@ -49,12 +47,10 @@ export default function ProjectDetail() {
 
       <main className="flex-1 container py-12">
         {/* Back Button */}
-        <Link href="/#portfolio">
-          <a className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors mb-8 font-medium">
+        <a href="/#portfolio" className="inline-flex items-center gap-2 text-accent hover:text-accent/80 transition-colors mb-8 font-medium">
             <ArrowLeft size={18} />
             Back to Portfolio
           </a>
-        </Link>
 
         {/* Header */}
         <div className="mb-12">
@@ -217,11 +213,9 @@ export default function ProjectDetail() {
                   .filter((p: any) => p.id !== project.id && p.category === project.category)
                   .slice(0, 3)
                   .map((p: any) => (
-                    <Link key={p.id} href={`/project/${p.id}`}>
-                      <a className="block text-accent hover:text-accent/80 transition-colors text-sm font-medium">
+                    <a key={p.id} href={`/project/${p.id}`} className="block text-accent hover:text-accent/80 transition-colors text-sm font-medium">
                         → {p.title}
-                      </a>
-                    </Link>
+                    </a>
                   ))}
               </div>
             </div>

@@ -1,4 +1,3 @@
-import { Link } from "wouter";
 import { useState, type FormEvent } from "react";
 import { Github, Linkedin, Mail, ArrowRight, CheckCircle, Calendar, BookOpen, Zap } from "lucide-react";
 import Navbar from "@/components/Navbar";
@@ -129,7 +128,7 @@ export default function Home() {
                     <span className="text-accent">DerFisiker</span>
                   </h1>
                   <p className="text-2xl text-foreground/80 font-medium">
-                    Junior SOC Analyst | System Integration Specialist (IHK 2026)
+                    Junior SOC Analyst | Fachinformatiker Systemintegration (IHK 2026)
                   </p>
                 </div>
 
@@ -144,6 +143,13 @@ export default function Home() {
                     Actively seeking Junior SOC Analyst position
                   </span>
                 </div>
+                  <div className="flex items-center gap-3">
+                  <span className="status-badge status-active">
+                    <span className="w-3 h-3 bg-green-400 rounded-full animate-pulse"></span>
+                    Actively seeking Network & System Integration position
+                  </span>
+                </div>
+
 
                 {/* CTA Buttons */}
                 <div className="flex flex-wrap gap-4">
@@ -272,11 +278,14 @@ export default function Home() {
 
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
               {projects.map((project) => (
-                <Link key={project.id} href={`/project/${project.id}`}>
-                  <a className="cyber-card group cursor-pointer">
+                <a
+                  key={project.id}
+                  href={`/project/${project.id}`}
+                  className="cyber-card group flex h-full flex-col cursor-pointer"
+                >
                     <div className="flex items-start justify-between mb-4">
                       <div>
-                        <h3 className="font-bold text-lg group-hover:text-accent transition-colors">
+                        <h3 className="min-h-[3.5rem] font-bold text-lg group-hover:text-accent transition-colors">
                           {project.title}
                         </h3>
                         <p className="text-sm text-foreground/60 mt-1">{project.category}</p>
@@ -284,11 +293,11 @@ export default function Home() {
                       <Zap size={20} className="text-accent flex-shrink-0" />
                     </div>
 
-                    <p className="text-foreground/70 text-sm mb-4 line-clamp-2">
+                    <p className="min-h-[3rem] text-foreground/70 text-sm mb-4 line-clamp-2">
                       {project.description}
                     </p>
 
-                    <div className="flex items-center justify-between pt-4 border-t border-border">
+                    <div className="mt-auto flex items-center justify-between pt-4 border-t border-border">
                       <span className="text-xs text-foreground/50 flex items-center gap-1">
                         <Calendar size={14} />
                         {project.date}
@@ -297,8 +306,7 @@ export default function Home() {
                         →
                       </span>
                     </div>
-                  </a>
-                </Link>
+                </a>
               ))}
             </div>
           </div>

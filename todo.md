@@ -62,3 +62,13 @@ Nur öffentliche Profil-URLs und die vom Nutzer ausdrücklich angegebene Kontakt
 ---
 
 ## EOF
+
+## Neue Überarbeitung: Navigation, Portfolio-Karten und Änderungsworkflow
+
+- [ ] Navigationsanker und Section-IDs in Navbar und Home prüfen.
+- [ ] Navigation so korrigieren, dass jede Sektion zuverlässig angesprungen wird.
+- [ ] SOC-Portfolio-Karten auf ein stabiles responsives Grid umstellen.
+- [ ] Kartenrahmen, Höhen, Overflow und Breakpoints lokal testen.
+- [ ] TypeScript-Prüfung und Produktions-Build ausführen.
+- [ ] Lokale Vorschau und Browser-Verhalten dokumentieren.
+- [ ] VS-Code-/GitHub-/IONOS-Workflow als Anleitung ergänzen.
