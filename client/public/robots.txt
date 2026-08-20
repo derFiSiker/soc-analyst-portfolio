@@ -1,0 +1,5 @@
+User-agent: *
+Allow: /
+Disallow: /404
+
+Sitemap: https://soc-analyst-portfolio.manus.space/sitemap.xml
