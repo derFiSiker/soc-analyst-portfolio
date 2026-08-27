@@ -1,5 +1,8 @@
 # To better understand this file read this:
 # https://docs.ionos.space/docs/github-actions-customization/
+#
+# Source-aware adaptation: the React/Vite project lives in source/.
+# Keep the IONOS artifact action and project ID below unchanged.
 
 name: "Deploy Now: Execute Build"
 
@@ -17,7 +20,7 @@ env:
   DEPLOYMENT_FOLDER: source/ionos-static
 
 jobs:
-# Please do not rename this job
+  # Please do not rename this job
   build-project:
     name: build soc-analyst-portfolio
     runs-on: ubuntu-latest
@@ -32,15 +35,17 @@ jobs:
         with:
           node-version: v22
 
-      - name: Build Node assets
+      - name: Build portable static portfolio from source
+        working-directory: source
         env:
           CI: true
           SITE_URL: ${{ inputs.site-url }}
         run: |
-          npm install
-          npm run build
+          npm install --global pnpm
+          pnpm install --frozen-lockfile
+          pnpm build:ionos
 
-# Please do not touch the following action
+      # Please do not touch the following action
       - name: Store deployment content
         uses: ionos-deploy-now/artifact-action@v1
         with:
