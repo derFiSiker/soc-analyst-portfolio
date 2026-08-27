@@ -1,0 +1,10 @@
+/* Signal Trace artifact modules: visibly structured placeholders for future lab evidence. */
+.artifact-top { display: flex; align-items: center; gap: 10px; color: #b8f927; font: 500 9px/1 "IBM Plex Mono", monospace; letter-spacing: .06em; }
+.artifact-top img { width: 14px; height: 14px; object-fit: contain; }
+.artifact-top i { flex: 1; height: 1px; background: rgba(184,249,39,.3); }
+.artifact-screen header, .artifact-screen footer, .artifact-code header, .artifact-code footer { position: absolute; left: 11px; right: 11px; display: flex; justify-content: space-between; color: #869585; font: 500 7px/1 "IBM Plex Mono", monospace; letter-spacing: .06em; }
+.artifact-screen header, .artifact-code header { top: 11px; }
+.artifact-screen footer, .artifact-code footer { bottom: 11px; }
+.artifact-screen header b, .artifact-code header b { color: #b8f927; font-weight: 500; }
+.artifact-grid-lines { bottom: 35px; }
+.artifact-code { position: relative; padding: 44px 22px 30px; }

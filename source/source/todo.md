@@ -1,0 +1,30 @@
+# Project Tasks
+
+- [x] Centralize bilingual German/English portfolio text in an easy-to-edit source file.
+- [x] Add an accessible language switch that changes all visible portfolio content.
+- [x] Build an editable interactive SOC terminal in the hero area.
+- [x] Verify desktop and mobile presentation, then save an updated checkpoint.
+- [x] Audit anchor links, local asset paths, and static hosting behavior for IONOS.
+- [x] Produce a self-contained static deployment bundle with deployment instructions.
+- [x] Create and size-check a ZIP archive for GitHub recovery and IONOS upload.
+- [x] Add an accessible opt-in terminal typing sound effect.
+- [x] Persist the animated DE/EN language selection in local browser storage.
+- [x] Add the SIEM homelab placeholder and Kali, Wazuh, Metasploitable, VMware, and Windows tags.
+- [x] Verify the updated desktop and mobile experience, then save a checkpoint.
+- [x] Review derfisiker.de and document suitable content or design elements.
+- [x] Transfer selected content into the SOC portfolio without diluting the Signal Trace design.
+- [x] Verify the adapted portfolio and save an updated checkpoint.
+- [x] Extract the CV information and exclude the role-specific personal-engagement section.
+- [x] Replace the project and credential sections with approved case studies and the learning journey.
+- [x] Add approved GitHub and LinkedIn links, metadata, logo, and favicon updates.
+- [x] Rebuild and validate the GitHub/IONOS deployment ZIP.
+- [x] Create an ATS-friendly one-page application CV from verified content.
+- [x] Create a visual Signal-Trace portfolio CV for website download.
+- [x] Diagnose and remove the local static-site 404 start behavior.
+- [x] Refactor the long one-page structure into static-safe home and case-study pages.
+- [x] Add Formspree-ready contact handling with an editable endpoint configuration.
+- [x] Add repository buttons and create starter content for five case-study repositories.
+- [x] Rebuild and test the local/IONOS static package with direct page navigation.
+- [x] Add case-study loading feedback, prominent return navigation, and artifact placeholders.
+- [x] Replace the ambiguous hero telemetry graphic with interpretable lab-status information.
+- [x] Verify the refined detail pages and document secure Formspree delivery to Marco@derFisiker.de.
