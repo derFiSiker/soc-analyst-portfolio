@@ -1,0 +1,57 @@
+# IONOS Deploy Now build workflow adapted to this repository.
+# It builds the Vite project from source/ and converts Manus asset paths into
+# a portable static package before uploading source/ionos-static to IONOS.
+name: "Deploy Now: Execute Build"
+
+on:
+  workflow_call:
+    inputs:
+      site-url:
+        required: true
+        type: string
+      branch-id:
+        required: true
+        type: string
+
+env:
+  DEPLOYMENT_FOLDER: source/ionos-static
+
+jobs:
+  build-project:
+    # IONOS requires this job name.
+    name: build soc-analyst-portfolio
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout repository
+        uses: actions/checkout@v4
+        with:
+          submodules: recursive
+
+      - name: Set up Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: v22.x
+
+      - name: Build portable static portfolio from source
+        working-directory: source
+        env:
+          CI: true
+          SITE_URL: ${{ inputs.site-url }}
+        run: |
+          npm install --global pnpm
+          pnpm install --frozen-lockfile
+          pnpm build
+          node scripts/build-ionos-static.mjs
+
+      # Required IONOS action: uploads only source/ionos-static.
+      - name: Store deployment content
+        uses: ionos-deploy-now/artifact-action@v1
+        with:
+          api-key: ${{ secrets.IONOS_API_KEY }}
+          service-host: api-eu.ionos.space
+          project-id: 2b06c64e-de03-4c08-a186-22c052ef0ac1
+          branch-id: ${{ inputs.branch-id }}
+          version: ${{ github.sha }}
+          folder: ${{ env.DEPLOYMENT_FOLDER }}
+          config-file: .deploy-now/soc-analyst-portfolio/config.yaml
+          action: upload
