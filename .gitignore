@@ -1,1 +1,32 @@
-node_modules/
+# Secrets and local credentials
+.env
+.env.*
+*.key
+*.pem
+*.pfx
+*.p12
+*password*
+*credential*
+*secret*
+
+# VMware and OS artifacts
+*.vmem
+*.vmsn
+*.vmss
+*.nvram
+*.lck/
+*.log
+.DS_Store
+Thumbs.db
+
+# Raw evidence and exports
+raw-logs/
+raw-evidence/
+exports/
+*.evtx
+*.pcap
+*.pcapng
+
+# Local editor state
+.vscode/settings.json
+.idea/
