@@ -4,6 +4,7 @@ import ErrorBoundary from "./components/ErrorBoundary";
 import { ThemeProvider } from "./contexts/ThemeContext";
 import Home from "./pages/Home";
 import CaseStudyPage from "./pages/CaseStudyPage";
+import LegalPage from "./pages/LegalPage";
 
 /** Signal Trace: global dark theme required for the carbon, slate, and acid-green SOC portfolio experience. */
 
@@ -15,6 +16,13 @@ function Router() {
   if (caseMatch) return <CaseStudyPage caseId={caseMatch[1]} />;
   // A static export opened as /static-site/index.html must render the portfolio,
   // rather than being interpreted as an unknown SPA route.
+  if (path === "/impressum") {
+    return <LegalPage type="impressum" />;
+  }
+
+  if (path === "/datenschutz") {
+    return <LegalPage type="datenschutz" />;
+  }
   return <Home />;
 }
 
