@@ -60,7 +60,7 @@ export default function CaseStudyPage({ caseId }: { caseId: string }) {
 
         <section className="case-evidence"><div><p className="eyebrow"><span className="live-dot" /> {labels.lessons}</p><ul className="case-lessons">{caseStudy.lessons.map((lesson) => <li key={lesson}><Check size={16} />{lesson}</li>)}</ul></div><aside><ShieldCheck size={27} /><span className="case-label">{labels.tools}</span><ul className="tag-list">{caseStudy.tools.map((tool) => <li key={tool}>{tool}</li>)}</ul>{hasRepository && <a className="text-link" href={repositoryUrl(caseId)} target="_blank" rel="noreferrer">{labels.repository} <ArrowUpRight size={14} /></a>}</aside></section>
       </main>
-      <footer className="case-footer"><span>© 2026 Marco Lütkemüller</span><a href="../../#projects">{labels.back} <ArrowUpRight size={13} /></a></footer>
+      <footer className="case-footer"><span>© 2026 Marco Lütkemüller</span><a href="../../impressum/">Impressum</a><a href="../../datenschutz/">Datenschutzerklärung</a><a href="../../#projects">{labels.back} <ArrowUpRight size={13} /></a></footer>
     </div>
   );
 }

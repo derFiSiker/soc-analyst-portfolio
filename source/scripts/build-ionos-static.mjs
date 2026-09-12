@@ -79,5 +79,20 @@ for (const legalPath of ["impressum", "datenschutz"]) {
   const legalIndex = rootIndex.replace("<head>", "<head>\n    <base href=\"../\" />");
   await writeFile(path.join(legalDirectory, "index.html"), legalIndex);
 }
-await writeFile(path.join(output, ".htaccess"), "Options -MultiViews\nDirectoryIndex index.html\n");
+await writeFile(
+  path.join(output, ".htaccess"),
+  [
+    "Options -MultiViews",
+    "DirectoryIndex index.html",
+    "",
+    "<IfModule mod_headers.c>",
+    "  Header always set Strict-Transport-Security \"max-age=31536000; includeSubDomains\"",
+    "  Header always set X-Content-Type-Options \"nosniff\"",
+    "  Header always set X-Frame-Options \"DENY\"",
+    "  Header always set Content-Security-Policy \"default-src 'self'; img-src 'self' data:; style-src 'self' 'unsafe-inline'; font-src 'self' data:; script-src 'self'; connect-src 'self' https://formspree.io; form-action 'self' https://formspree.io; frame-ancestors 'none'; base-uri 'self'\"",
+    "  Header always set Referrer-Policy \"strict-origin-when-cross-origin\"",
+    "</IfModule>",
+    "",
+  ].join("\n"),
+);
 console.log(`IONOS-ready static site created at: ${output}`);
