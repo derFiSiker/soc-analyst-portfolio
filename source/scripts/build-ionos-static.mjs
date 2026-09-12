@@ -76,7 +76,8 @@ for (const caseStudyId of caseStudyIds) {
 for (const legalPath of ["impressum", "datenschutz"]) {
   const legalDirectory = path.join(output, legalPath);
   await mkdir(legalDirectory, { recursive: true });
-  await writeFile(path.join(legalDirectory, "index.html"), rootIndex);
+  const legalIndex = rootIndex.replace("<head>", "<head>\n    <base href=\"../\" />");
+  await writeFile(path.join(legalDirectory, "index.html"), legalIndex);
 }
 await writeFile(path.join(output, ".htaccess"), "Options -MultiViews\nDirectoryIndex index.html\n");
 console.log(`IONOS-ready static site created at: ${output}`);
