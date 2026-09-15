@@ -51,6 +51,28 @@ export default function CaseStudyPage({ caseId }: { caseId: string }) {
           <div className="case-hero-grid"><div><p className="eyebrow"><span className="live-dot" /> {caseStudy.kind}</p><h1>{caseStudy.title}</h1><p className="case-lead">{caseStudy.lead}</p><div className="case-hero-actions"><a className="button button-primary case-return-button" href="../../#projects"><ArrowLeft size={17} /> {labels.back}</a>{hasRepository && <a className="button button-quiet" href={repositoryUrl(caseId)} target="_blank" rel="noreferrer"><Github size={17} /> {labels.repository} <ExternalLink size={15} /></a>}</div></div><aside className="case-identity"><img src="/assets/marco-signal-logo.png" alt="" /><span>CASE / {caseStudy.id.toUpperCase()}</span><i /><b>01</b></aside></div>
         </section>
 
+        {caseId === "siem-implementation" && (
+          <section className="room00-architecture" aria-labelledby="room00-architecture-title">
+            <div className="room00-architecture-head">
+              <p className="eyebrow"><span className="live-dot" /> ROOM 00 / ARCHITECTURE</p>
+              <h2 id="room00-architecture-title">Opferseite trifft<br /><i>Angreiferseite.</i></h2>
+              <p>Der logische Aufbau des Labors: Kali dient als Security-Testing-Plattform, während die Windows-Systeme die Active-Directory-Zielumgebung bilden. Wazuh beobachtet die Umgebung zentral.</p>
+            </div>
+            <div className="room00-diagram">
+              <div className="room00-zone room00-attacker">
+                <span className="room00-zone-label">ANGREIFER / SECURITY TESTING</span>
+                <div className="room00-node room00-node-primary"><b>Laptop</b><span>VMware Workstation Pro</span><strong>Kali Linux · 192.168.42.100</strong></div>
+              </div>
+              <div className="room00-network"><span>VMnet0 · Bridged</span><i /><b>TP-Link TL-SG-108<br />physisches LAN</b><i /><small>RedTeamLab · 192.168.42.0/24</small></div>
+              <div className="room00-zone room00-victims">
+                <span className="room00-zone-label">OPFERUMGEBUNG / ZIELSYSTEME</span>
+                <div className="room00-node"><b>Desktop</b><span>VMware Workstation Pro</span><div className="room00-node-list"><strong>DC01 · 192.168.42.40</strong><span>Active Directory / DNS</span><strong>Alice-PC · 192.168.42.31</strong><span>Windows Client / Domänenmitglied</span><strong>Bob-PC · 192.168.42.30</strong><span>Windows Client / Domänenmitglied</span></div></div>
+              </div>
+              <div className="room00-monitor"><span className="room00-zone-label">ZENTRALES MONITORING</span><div className="room00-node"><b>Wazuh-Server</b><span>192.168.42.20</span><strong>Monitoring / SIEM-Plattform</strong></div><small>VMnet8 · NAT: standardmäßig nicht verbunden; ausschließlich für Updates oder die Installation des Wazuh-Agenten.</small></div>
+            </div>
+          </section>
+        )}
+
         <section className="case-dossier">
           <div className="dossier-rail"><span>01</span><i /><b>{caseStudy.kind}</b></div>
           <div className="dossier-content"><section className="dossier-block environment-block"><span className="case-label">{labels.environment}</span><ul className="case-environment">{caseStudy.environment.map((item) => <li key={item}>{item}</li>)}</ul></section><section className="dossier-block"><span className="case-label">{caseStudy.scenarioTitle || labels.scenario}</span><p>{caseStudy.scenario}</p></section><section className="dossier-block"><span className="case-label">{caseStudy.methodTitle || labels.method}</span><p>{caseStudy.method}</p></section><section className="dossier-block highlight-block"><span className="case-label">{caseStudy.findingsTitle || labels.findings}</span><p>{caseStudy.findings}</p></section></div>
